@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+echo "build.sh VERSION: "${VERSION}
 pushd $(pwd) > /dev/null
     cd ${GOPATH}/src/configcenter/src
     DIRS=$(find * -maxdepth 0 -type d)
