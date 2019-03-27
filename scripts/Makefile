@@ -32,7 +32,7 @@ echo $${branch})
 # GITTAG?=$(shell git describe --tags --exact-match 2>1)
 GITTAG?=$(shell git describe --all --tags --exact-match 2>/dev/null | awk -F '/' '{print $$NF}')
 #VERSION?=$(GITTAG)-$(shell date +%y.%m.%d)
-$(info "version 1:-->"$(VERSION))
+$(info "version 1:-->"$(CC_VERSION))
 VERSION?=$(shell git symbolic-ref -q --short HEAD || git describe --all --tags --exact-match 2>/dev/null | awk -F '-' '{print $$NF}')
 $(info "version 2:-->"$(VERSION))
 ISDEBUG?=false
