@@ -33,7 +33,7 @@ echo $${branch})
 GITTAG?=$(shell git describe --all --tags --exact-match 2>/dev/null | awk -F '/' '{print $$NF}')
 #VERSION?=$(GITTAG)-$(shell date +%y.%m.%d)
 VERSION?=$(shell git symbolic-ref -q --short HEAD || git describe --all --tags --exact-match 2>/dev/null | awk -F '-' '{print $$NF}')
-
+$(info "version:-->"$(VERSION))
 ISDEBUG?=false
 ifeq ($(ISDEBUG),true)
 	GOBUILD_FLAGS = -ldflags "-X configcenter/src/common/version.CCRunMode=dev -X configcenter/src/common/version.CCVersion=${VERSION} -X configcenter/src/common/version.CCBuildTime=${BUILDTIME} -X configcenter/src/common/version.CCGitHash=${GITHASH} -X configcenter/src/common/version.CCTag=${GITTAG} -X configcenter/src/common/version.CCBRANCH=${BRANCH}"
